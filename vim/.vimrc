@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rust-lang/rust.vim'
 "Plug '/usr/local/opt/fzf'
 call plug#end()
 
