@@ -1,6 +1,9 @@
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.cargo/env
+export PATH=$PATH:$HOME/.cargo/env:/usr/local/go/bin #:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/user/.oh-my-zsh"
@@ -8,15 +11,16 @@ export ZSH="/home/user/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
 
-
+# Completion
+autoload -U compinit
+compinit
+# Allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
 
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
-
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +74,7 @@ HISTFILE=~/.zsh_history
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,3 +108,42 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gs='git status'
 alias gd='git diff'
+
+# kubernetes
+source <(kubectl completion zsh)
+
+# setup vim mode
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M vicmd "^V" edit-command-line
+bindkey '^R' history-incremental-search-backward
+
+# Better searching in command modes
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+# Beginning search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+
+# export KEYTIMEOUT=1
+
+# magic
+function paste {
+  if [[ -n $TMUX ]]; then
+    BUF=`xsel -ob < /dev/null`
+    ZZZ=`tmux set-buffer i$BUF; tmux paste-buffer`
+  fi
+}
+zle -N paste
+bindkey -M vicmd 'p' paste 
+
+# setup mode indicator
+RPS1="--INSERT--"
+function zle-keymap-select {
+   RPS1="${${KEYMAP/vicmd/}/(main|viins)/-- INSERT --}"
+   zle reset-prompt
+}
+zle -N zle-keymap-select

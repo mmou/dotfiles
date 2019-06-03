@@ -109,7 +109,10 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " " in ~/.vim/colors/ and uncomment:
 " " colorscheme solarized
 
+" Go config
 let g:go_fmt_command = "goimports"
 
-imap jj <ESC>
+" Rust config
+let g:rustfmt_autosave = 1
 
+imap jj <ESC>
