@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gs='git status'
 alias gd='git diff'
+alias o='xdg-open'
 
 # kubernetes
 source <(kubectl completion zsh)
