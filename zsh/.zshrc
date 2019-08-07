@@ -109,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 alias gs='git status'
 alias gd='git diff'
 alias o='xdg-open'
+alias mv2='rsync -avzhP --remove-source-files' # move files and recurse
+alias ffd='find . -empty -type d' # show empty folders
+alias ffdD='find . -empty -type d -delete' # delete empty folders
 
 # kubernetes
 source <(kubectl completion zsh)
