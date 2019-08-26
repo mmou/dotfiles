@@ -3,7 +3,10 @@ ZSH_THEME="agnoster"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export HOME=/home/user # qubes
 export PATH=$PATH:$HOME/.cargo/env:/usr/local/go/bin:/usr/sbin:/usr/local/sbin #:$HOME/.local/bin
+export GOPATH=$HOME/Documents/repos/go
+export PATH=$PATH:$GOPATH/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh

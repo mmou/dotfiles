@@ -18,6 +18,8 @@ cargo install fd-find ripgrep
 
 # after installing brave, maybe 
 # (from https://unix.stackexchange.com/questions/303213/how-to-enable-user-namespaces-in-the-kernel-for-unprivileged-unshare)
-sysctl -w kernel.unprivileged_userns_clone=1
+# sysctl -w kernel.unprivileged_userns_clone=1
 
 apt install tcpdump nmap
+
+apt install xclip
