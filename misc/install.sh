@@ -10,6 +10,8 @@ apt install i3 i3blocks
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+sudo apt install ./keybase_amd64.deb
 
 sudo apt install python3-pip magic-wormhole
 
@@ -20,6 +22,19 @@ cargo install fd-find ripgrep
 # (from https://unix.stackexchange.com/questions/303213/how-to-enable-user-namespaces-in-the-kernel-for-unprivileged-unshare)
 # sysctl -w kernel.unprivileged_userns_clone=1
 
-apt install tcpdump nmap
+sudo apt install tcpdump nmap
 
-apt install xclip
+sudo apt install xclip xsel rsync
+
+# sudo apt install nodejs npm yarn mysql-server
+
+# sudo apt install docker-ce docker-ce-cli containerd.io
+
+# sudo  apt install python3-venv python3-pip
+
+# sudo apt install spotify-client
+
+# sudo apt install audacity
+
+# install slack
+

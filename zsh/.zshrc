@@ -4,7 +4,7 @@ ZSH_THEME="agnoster"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export HOME=/home/user # qubes
-export PATH=$PATH:$HOME/.cargo/env:/usr/local/go/bin:/usr/sbin:/usr/local/sbin #:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/env:/usr/local/go/bin:/usr/sbin:/usr/local/sbin:/home/user/bin #:$HOME/.local/bin
 export GOPATH=$HOME/Documents/repos/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -116,8 +116,12 @@ alias mv2='rsync -avzhP --remove-source-files' # move files and recurse
 alias ffd='find . -empty -type d' # show empty folders
 alias ffdD='find . -empty -type d -delete' # delete empty folders
 
+# keybase
+# alias kbc='cd ~/Documents/repos/go/src/github.com/keybase/client'
+# alias kbk='cd ~/Documents/repos/go/src/github.com/keybase/keybase'
+
 # kubernetes
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 # setup vim mode
 bindkey -v
@@ -154,3 +158,8 @@ function zle-keymap-select {
    zle reset-prompt
 }
 zle -N zle-keymap-select
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
