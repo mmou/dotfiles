@@ -7,10 +7,12 @@
 # - golang
 # - lastpass
 # - brew
+# - istat
+# - docker
 
 # new ssh key
 
-brew install stow magic-wormhole ripgrep bat fd tmux
+brew install stow magic-wormhole ripgrep bat fd tmux gh kubectl
 
 stow --target=/Users/mmou zsh
 stow --target=/Users/mmou vim
